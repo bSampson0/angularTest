@@ -1,0 +1,25 @@
+
+To create a buildspec.yaml file for building an Angular application using AWS CodeBuild, you need to define the build steps and commands required to build your Angular project. Below is an example buildspec.yaml file for an Angular application:
+
+yaml
+Copy code
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo Installing Node.js dependencies...
+      - npm install -g @angular/cli
+      - npm install
+
+  build:
+    commands:
+      - echo Building the Angular application...
+      - ng build --prod
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist/
