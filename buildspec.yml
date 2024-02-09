@@ -8,16 +8,13 @@ phases:
       - echo Installing Node.js dependencies...
       - npm install -g @angular/cli
       - npm install
-  pre_build:
+
+  build:
     commands:
       - echo Building the Angular application...
       - ng build --prod
 
-  build:
-    commands:
-      - aws s3 cp dist s3://static-site-bnicerrr/ --recursive
-
 artifacts:
   files:
     - "**/*"
-  base-directory: dist/
+  base-directory: dist/angular-test/
