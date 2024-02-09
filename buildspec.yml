@@ -13,6 +13,7 @@ phases:
     commands:
       - echo Building the Angular application...
       - ng build --prod
+      - aws s3 cp dist s3://static-site-bnicerrr/ --recursive
 
 artifacts:
   files:
