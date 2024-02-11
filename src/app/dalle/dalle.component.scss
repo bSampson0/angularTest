@@ -1,0 +1,21 @@
+.container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+    
+
+    .preview-card {
+        margin: 2rem;
+        width: 400px;
+    }
+
+    .full-width {
+        padding-top: 1rem;
+        width: 100%;
+    }
+}
