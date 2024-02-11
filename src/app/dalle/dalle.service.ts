@@ -6,14 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DalleService {
-  private baseUrl = 'http://localhost:3000'; // Replace with your actual backend server URL
-
   constructor(private http: HttpClient) {}
 
   generateImage(prompt: string): Observable<any> {
-    return this.http.post<{ imageURL: string }>(
-      `${this.baseUrl}/generate-image`,
-      { prompt }
+    const payload = { prompt: prompt };
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.post(
+      'https://29z9qcjcu5.execute-api.us-east-1.amazonaws.com/default/generateImage',
+      payload,
+      { headers }
     );
+    // return this.http.post<any>(
+    //   'https://29z9qcjcu5.execute-api.us-east-1.amazonaws.com/default/generateImage',
+    //   { prompt: prompt }
+    // );
   }
 }

@@ -8,28 +8,24 @@ import { DalleService } from './dalle.service';
   styleUrls: ['./dalle.component.scss'],
 })
 export class DalleComponent implements OnInit {
-  constructor(private dalleService: DalleService) {}
+  constructor(public dalleService: DalleService) {}
 
   ngOnInit(): void {}
 
   prompt = new FormControl('');
-  imageUrl = '';
+  imageUrl = null;
   isLoading = false;
 
   async getImageUrl() {
     this.isLoading = true;
-    this.dalleService.generateImage(this.prompt.value).subscribe({
-      next: (response) => {
-        const data = response;
-        this.imageUrl = data.imageURL;
-      },
-      error: (error) => {
-        console.error('Error generating image:', error);
-      },
+    console.log('prompt: ' + this.prompt.value);
+    this.dalleService.generateImage(this.prompt.value).subscribe((data) => {
+      this.imageUrl = data.imageUrl;
+      this.isLoading = false;
     });
   }
 
   downloadImg() {
-    window.open(this.imageUrl);
+    window.open(this.imageUrl || '');
   }
 }
