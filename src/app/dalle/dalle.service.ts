@@ -16,9 +16,5 @@ export class DalleService {
       payload,
       { headers }
     );
-    // return this.http.post<any>(
-    //   'https://29z9qcjcu5.execute-api.us-east-1.amazonaws.com/default/generateImage',
-    //   { prompt: prompt }
-    // );
   }
 }
