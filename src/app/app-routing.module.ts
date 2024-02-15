@@ -20,11 +20,6 @@ const routes: Routes = [
         (m) => m.Text2speechModule
       ),
   },
-  {
-    path: '',
-    redirectTo: '/',
-    pathMatch: 'full',
-  },
 ];
 
 @NgModule({
